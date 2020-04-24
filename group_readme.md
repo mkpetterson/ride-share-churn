@@ -70,9 +70,9 @@ We chose 3 different models to test: Neural Networks, Random Forest, and Gradien
 
 <b> Gradient Boosting Classifier</b>
 Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are n_estimators = 100, learning rate = 0.1, and max depth = 3.
-Accuracy: 0.79
-Precision: 0.87
-Recall: 0.81
+Accuracy: 79%
+Precision: 86%
+Recall: 81%
 
 Feature Importances:
 
@@ -87,13 +87,18 @@ You can see that the learning rate affects the testing errors. The default learn
 
 <img alt="LR" src='img/lr_errors.png'>
 
-The initial parameters of the GBC seem to be close to optimal and this model has an accuracy of 79%, precision of 87%, and recall of 81% when considering all the features. There doesn't seem to be any features that indicate leakage, although the features of average surge and surge percentage are highly correlated. 
+The initial parameters of the GBC seem to be close to optimal. Running this model on the test data reveals slightly lower numbers. 
+Accuracy: 78%
+Precision: 86%
+Recall: 80% 
+MSE: 0.218
+There doesn't seem to be any features that indicate leakage, although the features of average surge and surge percentage are highly correlated. 
 
 <img alt="roc" src='img/roc.png'>
 
 ## Key Findings
 
-The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. Looking more into these features shows that.....blah blah
+The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. Looking more into these features shows that.....blah blah look into breakdown of these 4 features by churn/not churn
 
 
 
