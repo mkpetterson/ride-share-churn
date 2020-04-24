@@ -5,78 +5,37 @@ from scipy import interp
 from sklearn.model_selection import KFold
 from sklearn.preprocessing import StandardScaler
 
-
-def plot_roc(X, y, clf_class, plot_name, **kwargs):
-    scaler = StandardScaler()
-    X = scaler.fit_transform(X)
-    n_splits=5
-    kf = KFold(n_splits=n_splits, shuffle=True)
-    y_prob = np.zeros((len(y),2))
-    mean_tpr = 0.0
-    mean_fpr = np.linspace(0, 1, 100)
-    all_tpr = []
-    for i, (train_index, test_index) in enumerate(kf.split(X)):
-        X_train, X_test = X[train_index], X[test_index]
-        y_train = y[train_index]
-        clf = clf_class(**kwargs)
-        clf.fit(X_train,y_train)
-        # Predict probabilities, not classes
-        y_prob[test_index] = clf.predict_proba(X_test)
-        fpr, tpr, thresholds = roc_curve(y[test_index], y_prob[test_index, 1])
-        mean_tpr += interp(mean_fpr, fpr, tpr)
-        mean_tpr[0] = 0.0
-        roc_auc = auc(fpr, tpr)
-        plt.plot(fpr, tpr, lw=1, label='ROC fold %d (area = %0.2f)' % (i, roc_auc))
-    mean_tpr /= n_splits
-    mean_tpr[-1] = 1.0
-    mean_auc = auc(mean_fpr, mean_tpr)
-    plt.plot(mean_fpr, mean_tpr, 'k--',label='Mean ROC (area = %0.2f)' % mean_auc, lw=2)
-    
-    plt.plot([0, 1], [0, 1], '--', color=(0.6, 0.6, 0.6), label='Random')
-    plt.xlim([-0.05, 1.05])
-    plt.ylim([-0.05, 1.05])
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.title('Receiver operating characteristic')
-    plt.legend(loc="lower right")
-    plt.show()
-
-def calculate_threshold_values(prob, y):
+def plot_roc_curve(probabilities, labels, ax, title):
     '''
-    Build dataframe of the various confusion-matrix ratios by threshold
-    from a list of predicted probabilities and actual y values
+    INPUT: numpy array, numpy array
+    OUTPUT: list, list, list
+
+    Take a numpy array of the predicted probabilities and a numpy array of the
+    true labels.
+    Return the True Positive Rates, False Positive Rates and Thresholds for the
+    ROC curve.
     '''
-    df = pd.DataFrame({'prob': prob, 'y': y})
-    df.sort_values('prob', inplace=True)
+    probabilities = probabilities.reshape(labels.shape)
+    thresholds = np.linspace(0.01, 0.99, 100)
+    tpr = []
+    fpr = []
     
-    actual_p = df.y.sum()
-    actual_n = df.shape[0] - df.y.sum()
-
-    df['tn'] = (df.y == 0).cumsum()
-    df['fn'] = df.y.cumsum()
-    df['fp'] = actual_n - df.tn
-    df['tp'] = actual_p - df.fn
-
-    df['fpr'] = df.fp/(df.fp + df.tn)
-    df['tpr'] = df.tp/(df.tp + df.fn)
-    df['precision'] = df.tp/(df.tp + df.fp)
-    df = df.reset_index(drop=True)
-    return df
+    num_true_pos = np.sum(labels)
+    num_false_pos = len(labels) - num_true_pos
     
-def plot_roc2(ax, df):
-    ax.plot([1]+list(df.fpr), [1]+list(df.tpr), label="ROC")
-    ax.plot([0,1],[0,1], 'k', label="random")
-    ax.set_xlabel('fpr')
-    ax.set_ylabel('tpr')
-    ax.set_title('ROC Curve')
-    ax.legend()
-    
-def plot_precision_recall(ax, df):
-    ax.plot(df.tpr,df.precision, label='precision/recall')
-    #ax.plot([0,1],[0,1], 'k')
-    ax.set_xlabel('recall')
-    ax.set_ylabel('precision')
-    ax.set_title('Precision/Recall Curve')
-    ax.plot([0,1],[df.precision[0],df.precision[0]], 'k', label='random')
-    ax.set_xlim(left=0,right=1)
-    ax.set_ylim(bottom=0,top=1)
+    for t in thresholds:
+        num_correct_pred = np.sum((probabilities >= t) & (labels == 1))
+        num_incorrect_pred = np.sum((probabilities >= t) & (labels == 0))
+        
+        tpr.append(num_correct_pred / num_true_pos)
+        fpr.append(num_incorrect_pred / num_false_pos)
+        
+    mean_auc = auc(fpr, tpr)
+    ax.plot(fpr, tpr, 'b', label='ROC (area = %2.2f)' % mean_auc, lw=2)
+    ax.set_xlabel('False Positive Rate', fontsize=20)
+    ax.set_ylabel('True Positive Rate', fontsize=20)
+    ax.set_title('Receiver Operating Characteristic: %s' % title, fontsize=20)
+    ax.legend(loc="lower right", fontsize=15)
+    ax.plot(thresholds, thresholds, color='k', ls='--', alpha=.5)
+        
+    return ax, tpr, fpr, thresholds
