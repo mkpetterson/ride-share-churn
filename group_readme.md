@@ -69,7 +69,7 @@ We chose 3 different models to test: Neural Networks, Random Forest, and Gradien
 
 
 <b> Gradient Boosting Classifier</b>
-Out of the box metrics for Gradient Boosting Classfier were pretty good. 
+Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are n_estimators = 100, learning rate = 0.1, and max depth = 3.
 Accuracy: 0.79
 Precision: 0.87
 Recall: 0.81
@@ -79,10 +79,27 @@ Feature Importances:
 <img alt="Feature" src='img/feature_import.png'>
 
 
+Looking at the training and testing errors as a function of number of trees leads to an optimized value of 137, which is pretty close to the default value. 
 
+<img alt="Test_train" src='img/test_train_errors.png'>
 
+You can see that the learning rate affects the testing errors. The default learning rate of 0.1 actually works pretty well. 
+
+<img alt="LR" src='img/lr_errors.png'>
+
+The initial parameters of the GBC seem to be close to optimal and this model has an accuracy of 79%, precision of 87%, and recall of 81% when considering all the features. There doesn't seem to be any features that indicate leakage, although the features of average surge and surge percentage are highly correlated. 
+
+<img alt="roc" src='img/roc.png'>
 
 ## Key Findings
+
+The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. Looking more into these features shows that.....blah blah
+
+
+
+
+
+
  ( Identify interpret features that are the most influential in affecting
 your predictions.)
 ( Consider business decisions that your model may indicate are appropriate.)
@@ -102,7 +119,6 @@ be retained.
 3. Evaluate the model.  Focus on metrics that are important for your *statistical
 model*.
  
-
 
 5. Discuss the validity of your model. Issues such as
 leakage.  For more on leakage, see [this essay on
