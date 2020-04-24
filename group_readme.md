@@ -172,69 +172,35 @@ recall (probability of detection): 0.8579977357269933
 
 <b> Gradient Boosting Classifier</b>
 Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are n_estimators = 100, learning rate = 0.1, and max depth = 3.
-Accuracy: 79%
-Precision: 86%
-Recall: 81%
+- Accuracy: 79%
+- Precision: 86%
+- Recall: 81%
 
 Feature Importances:
 
-<img alt="Feature" src='img/feature_import.png'>
+
+<img src="img/feature_import.png" alt="Drawing" style="width: 400px;" align="center"/>
 
 
-Looking at the training and testing errors as a function of number of trees leads to an optimized value of 137, which is pretty close to the default value. 
+Looking at the training and testing errors as a function of number of trees leads to an optimized value of 137, which is pretty close to the default value. The learning rate also affects the testing errors. The default learning rate of 0.1 actually works pretty well. 
 
-<img alt="Test_train" src='img/test_train_errors.png'>
+<img alt="LR" src='img/errors.png'>
 
-You can see that the learning rate affects the testing errors. The default learning rate of 0.1 actually works pretty well. 
-
-<img alt="LR" src='img/lr_errors.png'>
 
 The initial parameters of the GBC seem to be close to optimal. Running this model on the test data reveals slightly lower numbers. 
-Accuracy: 78%
-Precision: 86%
-Recall: 80% 
-MSE: 0.218
+- Accuracy: 78%
+- Precision: 86%
+- Recall: 80% 
+- MSE: 0.218
 There doesn't seem to be any features that indicate leakage, although the features of average surge and surge percentage are highly correlated. 
 
-<img alt="roc" src='img/roc.png'>
-
-## Key Findings
-
-The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. Looking more into these features shows that.....blah blah look into breakdown of these 4 features by churn/not churn
+<img src="img/roc.png" alt="Drawing" style="width: 400px;" align="center"/>
 
 
+The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. Looking more into these features shows that there is a difference in churn rate. 
+<img src="img/avg_churn.png" alt="Drawing" style="width: 600px;" align="center"/>
 
 
+## Summary
 
-
- ( Identify interpret features that are the most influential in affecting
-your predictions.)
-( Consider business decisions that your model may indicate are appropriate.)
-
-
-
-
-
-## Work Flow
-
-1. Perform any cleaning, exploratory analysis, and/or visualizations to use the
-provided data for this analysis.
-   
-2. Build a predictive model to help determine the probability that a rider will
-be retained.
-
-3. Evaluate the model.  Focus on metrics that are important for your *statistical
-model*.
- 
-
-5. Discuss the validity of your model. Issues such as
-leakage.  For more on leakage, see [this essay on
-Kaggle](https://www.kaggle.com/dansbecker/data-leakage), and this paper: [Leakage in Data
-Mining: Formulation, Detection, and Avoidance](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.365.7769&rep=rep1&type=pdf).
-
-6. Repeat 2 - 5 until you have a satisfactory model.
-
-7. Consider business decisions that your model may indicate are appropriate.
-Evaluate possible decisions with metrics that are appropriate for *decision
-rules*.
-   
+The models have varying performance. One interesting feature is that the random forest and gradient boosting classifier have different key features picked out. 
