@@ -50,17 +50,16 @@ A screenshot of our cleaned dataset is below
 
 <b>EDA</b>
 
-Working on the training set only
+Working on the training set only, we did some EDA to look at the distribution of the features. Below are a heatmap with correlation metrics, a histogram of numerical features, and a bar chart of the binary features. 
 
 <img alt="Heatmap" src='img/corr_heatmap.png'>
 <img alt="Histograms" src='img/histograms_of_features.png'>
 
 
 
-
 ## Models Investigated
 
-We choose 3 different models to test: Neural Networks, Random Forest, and Gradient Boosting Classification. We decided to evaluate our models on the following metrics: Accuracy, Precision, Recall, and the ROC curve. 
+We chose 3 different models to test: Neural Networks, Random Forest, and Gradient Boosting Classification. We decided to evaluate our models on the following metrics: Accuracy, Precision, Recall, and the ROC curve. 
 
 
 <b> Neural Networks</b>
@@ -70,6 +69,15 @@ We choose 3 different models to test: Neural Networks, Random Forest, and Gradie
 
 
 <b> Gradient Boosting Classifier</b>
+Out of the box metrics for Gradient Boosting Classfier were pretty good. 
+Accuracy: 0.79
+Precision: 0.87
+Recall: 0.81
+
+Feature Importances:
+
+<img alt="Feature" src='img/feature_import.png'>
+
 
 
 
