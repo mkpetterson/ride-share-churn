@@ -201,18 +201,7 @@ There doesn't seem to be any features that indicate leakage, although the featur
 
 ## Key Findings
 
-The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. Looking more into these features shows that.....blah blah look into breakdown of these 4 features by churn/not churn
-
-
-
-
-
-
- ( Identify interpret features that are the most influential in affecting
-your predictions.)
-( Consider business decisions that your model may indicate are appropriate.)
-
-
+The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. All models show a very similar ROC curve.
 
 
 
