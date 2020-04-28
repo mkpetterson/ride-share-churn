@@ -51,19 +51,22 @@ def clean_churn_data(data):
 def accuracy_scores(y_true, y_pred):
     tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
     
-    # Put into pandas dataframe
-    confusion = pd.DataFrame({'Predicted Negative': [tn, fn], 'Predicted Positive': [fp, tp]}, 
-                             index=['Actual Negative', 'Actual Positive']) 
-    
     # Make calculations
     accuracy = round((tp+tn)/(tp+tn+fp+fn), 3)
     recall = round(tp/(tp+fn), 3)
     precision = round(tp/(tp+fp), 3)
     mse = round(mean_squared_error(y_true, y_pred), 3)
     
-    return accuracy, recall, precision, mse, confusion
+    return accuracy, recall, precision, mse
 
-
+def confusion_df(y_true, y_pred):
+    tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+    
+    # Put into pandas dataframe
+    confusion = pd.DataFrame({'Predicted Negative': [tn, fn], 'Predicted Positive': [fp, tp]}, 
+                             index=['Actual Negative', 'Actual Positive']) 
+      
+    return confusion
 
 def plot_roc_curve(probabilities, labels, ax, title):
     '''
@@ -98,4 +101,4 @@ def plot_roc_curve(probabilities, labels, ax, title):
     ax.legend(loc="lower right", fontsize=15)
     ax.plot(thresholds, thresholds, color='k', ls='--', alpha=.5)
         
-    return ax, tpr, fpr, thresholds
+    return ax#, tpr, fpr, thresholds
