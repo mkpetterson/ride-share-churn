@@ -2,6 +2,13 @@
 
 <a href="https://github.com/b-weintraub">Ben Weintraub</a> | <a href="https://github.com/redwin21">Eddie Ressegue</a> | <a href="https://github.com/mkpetterson">Maureen Petterson</a>
 
+## Table of Contents
+
+<a href="https://github.com/mkpetterson/ride-share-churn#intro">Intro</a>
+<a href="https://github.com/mkpetterson/ride-share-churn#exploratory-data-analysis-and-data-preparation">Exploratory Data Analysis and Data Preparation</a>
+<a href="https://github.com/mkpetterson/ride-share-churn#models-investigated">Models Investigated</a>
+<a href="https://github.com/mkpetterson/ride-share-churn#comparison-of-models">Comparison of Models</a>
+<a href="https://github.com/mkpetterson/ride-share-churn#summary-and-key-findings">Summary and Key Findings</a>
 
 
 
@@ -257,4 +264,4 @@ The average rating by driver (or the passenger rating) is not something that can
 
 A reduction in surge pricing or a reduction in surge hours would certainly help retain riders, as cost of the service can be a barrier. 
 
-King's landing was also an important feature and people in King's Landing are more likely to remain active. This could possibly be due to differences in how drivers in that city operate. Research should be conducted into the different business practices in the 3 different cities. 
+King's landing was also an important feature and people in King's Landing are less likely to churn than in Astapor: 37% vs 74%. Winterfell fall sin between the two and has a churn rate of 65%. These differences could possibly be due to operational differences in the three cities and research should be conducted into why the churn rates vary.  
