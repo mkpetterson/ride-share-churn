@@ -83,15 +83,13 @@ Moderate tuning of the hyperparameters was done to achieve a final, satisfactory
 
 A confusion matrix with a threshold of 50% can be seen here:
 
-<br>
-<center>
-<img src="img/nn_conf_mat.png" alt="Drawing" style="width: 400px;" align="center"/>
-</center>
-<center>
-<b>Accuracy:</b> 57% | <b>Precision:</b> 80% | <b>Recall:</b> 43%
-</center>
-<br>
-<br>
+
+<p align='middle'>
+    <td><img src='./img/nn_conf_mat.png' align='center' style='width: 400px;'></td>
+</p>
+<p align='middle'>
+    <b>Accuracy:</b> 57% | <b>Precision:</b> 80% | <b>Recall:</b> 43%
+</p>
 
 This matrix shows a large amount of false negatives, with a relatively small amount of false positives, so it is great at predicting positives but not negatives. This explains the high relative precision and low accuracy and recall.
 
