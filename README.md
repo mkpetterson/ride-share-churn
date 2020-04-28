@@ -2,16 +2,6 @@
 
 <a href="https://github.com/b-weintraub">Ben Weintraub</a> | <a href="https://github.com/redwin21">Eddie Ressegue</a> | <a href="https://github.com/mkpetterson">Maureen Petterson</a>
 
-## Table of Contents
-
-- <a href="https://github.com/mkpetterson/ride-share-churn#intro">Intro</a>  
-- <a href="https://github.com/mkpetterson/ride-share-churn#exploratory-data-analysis-and-data-preparation">Exploratory Data Analysis and Data Preparation</a> 
-- <a href="https://github.com/mkpetterson/ride-share-churn#models-investigated">Models Investigated</a>  
-- <a href="https://github.com/mkpetterson/ride-share-churn#comparison-of-models">Comparison of Models</a> 
-- <a href="https://github.com/mkpetterson/ride-share-churn#summary-and-key-findings">Summary and Key Findings</a>
-
-
-
 ## Intro
 Ridership rates at ride sharing companies can be affected by several factors, some of which may include the cost of the rides, if the user rates the driver highly, and the ride experience. We were interested in finding out what methods can be used to help retain riders and what factors affect rider attrition. 
 
@@ -55,9 +45,9 @@ Working on the training set only, we did some EDA to look at the distribution of
 <img alt="Heatmap" src='img/corr_heatmap.png' style='width: 600px;'>
 <img alt="Histograms" src='img/histograms_of_features.png'>
 
-<p align='middle'>
-    <td><img src='img/binary_bar_chart.png' align='center' width="400"></td>
-</p>
+<center>
+    <td><img src='img/binary_bar_chart.png' align='center' style='width: 400px;'></td>
+</center>
 
 ## Models Investigated
 
@@ -112,76 +102,85 @@ The final model seems to make predictions in line with the Random Forest and Gra
 ### Random Forest Model
 
 
-We used the following metrics to compare our models including log loss, accuracy, confusion matrices, precision, and recall.  Below are the definitions.
-#### log loss = -(ylog p) + (1-y)*log (1-p))
+<b> Random Forest</b>
+
+
+We used the following metrics to compare our models including accuracy, precision, recall, and confusion matrices.  Below are the definitions.
 
 For the random forest classifier model with all the out-of-the-box default settings, the model had the following performance metrics:
 
-Log loss : 1.58
 
-Accuracy : 74% 
 
-Confusion matrix : 
-
-[[2566 1172]
-
- [1375 4808]]
+Confusion matrix :  
  
-precision : 80% 
+ <br>
+<center>
+<img src="../img/rf_cm1.png" alt="Drawing" style="width: 400px;" align="center"/>
+</center>
+ <center>
+<b>Accuracy:</b>  74% | <b>Precision:</b> 80% | <b>Recall:</b> 77.7% 
+</center>
+<br>
+<br>
 
-Recall (probability of detection): 77.7%
+
+In the random forest model the following were found to be the most important features.  It can be seen that the top 3 included avg_dist, weekday_pct, and avg_rating_by_driver.
 
 
-The following were found to be the most important features:
+ <br>
+<center>
 
-Feature ranking: 
-
-1. avg_dist (0.294538)
-2. weekday_pct (0.124756)
-3. avg_rating_by_driver (0.121537)
-4. avg_rating_of_driver (0.086139)
-5. trips_in_first_30_days (0.084110)
-6. avg_surge (0.069964)
-7. surge_pct (0.069027)
-8. phone (0.038627)
-9. luxury_car_user (0.032205)
-10. city: Astapor (0.014008)
-<p align='middle'>
-<img alt="Feature" src='img_ben/feature_importance.png' width=400>
-</p>
+<img alt="Feature" src='../img/rf_feature_importance.png' width=400>
+<center/>
+ <br>
 
 #### Next model hyperparameters were tuned to optimize the model
 
-modifying the number of trees
-<p align='middle'>
-<img alt="Feature" src='img_ben/num_trees.png' width=400>
+We optimized the numbers of trees, the max feature parameters, and the max_depth.  The results are shown below.
+
+
+
+<ul>
+<img src="../img/rf_num_tree.png" alt="Drawing" style="width: 250px;">
+<img src="../img/rf_num_features.png" alt="Drawing" style="width: 250px;">
+<img src="../img/rf_tree_depth.png" alt="Drawing" style="width: 250px;">
+
+</ul>
+
+
+
+   
 </p>
-modifying the max features parameter
-<p align='middle'>
-<img alt="Feature" src='img_ben/num_features.png' width=400>
-</p>
-modifying the max_depth
-<p align='middle'>
-<img alt="Feature" src='img_ben/max_depth.png' width=400>
-</p>
+
 Here are the optimized parameters:
 
-n_estimators=40,max_features=5, max_depth=10
 
 
-Here are the final optimized model metrics:
+| n_estimators       | max_features | max_depth  |
+| ------------- |:-------------:| -----:|
+| 40    | 5 | 10 |
 
-log loss : 0.465862569729533
-accuracy : 0.7819776232234654
-confusion matrix : 
-[[2453 1285]
- [ 878 5305]]
-precision : 0.8050075872534143
-recall (probability of detection): 0.8579977357269933
-<p align='middle'>
-<img alt="Feature" src='img_ben/roc.png' width=400>
-</p>
 
+
+Here are the final optimized model metrics and ROC curve:
+
+
+Confusion matrix :  
+ 
+ <br>
+<center>
+<img src="../img/rf_cm2.png" alt="Drawing" style="width: 400px;" align="center"/>
+</center>
+ <center>
+<b>Accuracy:</b>  78.2% | <b>Precision:</b> 80.5% | <b>Recall:</b> 85.8% 
+<br>
+<br>
+<img alt="Feature" src='../img/rf_roc.png' width=400>
+</center>
+<br>
+<br>
+
+    
 <b> Gradient Boosting Classifier</b>
 
 Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are:
@@ -189,24 +188,18 @@ Out of the box metrics for Gradient Boosting Classfier were pretty good. The def
 - learning rate = 0.1
 - max depth = 3
 
-The results can be summarized in the following confusion matrix with a threshold of 50%: 
-
-
-<br>
-<br>
+The results can be summarized in the confusion matrix below: 
 <p align='middle'>
-    <td><img src='./img/confusion_matrix_gbc.png' align='center' width='500'></td>
+    <td><img src='./img/confusion_matrix_gbc.png' align='center' style='width: 400px;'></td>
 </p>
 <p align='middle'>
-    <b>Accuracy:</b> 79% | <b>Precision:</b> 81% | <b>Recall:</b> 86%
+    <b>Accuracy:</b> 79% | <b>Precision:</b> 86% | <b>Recall:</b> 81%
 </p>
-
 
 
 The Feature Importances are shown in the table below. 
-<p align='middle'>
-<img src="img/feature_import_gbc.png" alt="Drawing" width="500" align="center"/>
-</p>
+
+<img src="img/feature_import_gbc.png" alt="Drawing" style="width: 500px;" align="center"/>
 <br>
 <br>
 
@@ -219,9 +212,7 @@ Looking at the training and testing errors as a function of number of trees lead
 
 Running the "optimized" GBC model on our data results in the following ROC curve. 
 
-<p align='middle'>
-<img src="img/roc_gbc.png" alt="Drawing" width="400" align="center"/>
-</p>
+<img src="img/roc_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
 <br>
 
 Summary of GBC: 
@@ -234,34 +225,14 @@ The most influential features are: average rating by driver, surge percent, week
 
 ## Comparison of Models
 
-The ROC curves for each model were plotted on top of each other, showing that each model performs similarly to the others. Ultimately it was decided that the best model to select for testing was Gradient Boosting Classifier. The final results are shown below. 
+The ROC curves for each model were plotted on top of each other, showing that each model performs similarly to the others. Ultimately it was decided that the best model to select for testing was <>. The final results are shown below. 
 
 <p align='middle'>
-    <td><img src='./img/roc_overlay.png' align='center' width='500'></td>
+    <td><img src='./img/roc_overlay.png' align='center' style='width: 500px;'></td>
 </p>
-
-
-<br>
-<br>
-<p align='middle'>
-    <td><img src='./img/confusion_matrix_gbc_testdata.png' align='center' width='500'></td>
-</p>
-<p align='middle'>
-    <b>Accuracy:</b> 78% | <b>Precision:</b> 81% | <b>Recall:</b> 86%
-</p>
-
 
 
 ## Summary and Key Findings
 
-While all the models performed well, we decided to use a Gradient Boosting Classifier to predict ridership churn. While the neural network performed well, it is essentially a black box that cannnot tell us the most important features and is less helpful in determining what business practices to change. 
+We showed that the best model to predict ridership churn is <>. The most important features predicting churn are <>, <>, <>, and <>. Our advice to reduce churn would be to reduce the surge pricing, see what 
 
-Using the GBC model, the most important features predicting churn are average rating by driver, surge percent, weekday percent, and being in King's Landing. 
-
-<b>Recommendations</b>
-
-The average rating by driver (or the passenger rating) is not something that can be changed by the company. We suspect that passengers with poor ratings are not selected by drivers, and thus have a harder time getting rides. This leads to attrition, but perhaps it isn't bad for the company to lose the worst riders. 
-
-A reduction in surge pricing or a reduction in surge hours would certainly help retain riders, as cost of the service can be a barrier. 
-
-King's landing was also an important feature and people in King's Landing are less likely to churn than in Astapor: 37% vs 74%. Winterfell fall sin between the two and has a churn rate of 65%. These differences could possibly be due to operational differences in the three cities and research should be conducted into why the churn rates vary.  

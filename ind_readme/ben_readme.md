@@ -107,12 +107,7 @@ For the random forest classifier model with all the out-of-the-box default setti
 
 
 
-Confusion matrix : 
-
-[[2566 1172]
-
- [1375 4808]]
- 
+Confusion matrix :  
  
  <br>
 <center>
@@ -125,64 +120,63 @@ Confusion matrix :
 <br>
 
 
-| Log loss      | Accuracy      | precision  |  Recall  |
-| ------------- |:-------------:| ----------:| --------:|
-| 1.58          |           |         |    |
+In the random forest model the following were found to be the most important features.  It can be seen that the top 3 included avg_dist, weekday_pct, and avg_rating_by_driver.
 
 
+ <br>
+<center>
 
-
-
-The following were found to be the most important features:
-
-Feature ranking: 
-
-1. avg_dist (0.294538)
-2. weekday_pct (0.124756)
-3. avg_rating_by_driver (0.121537)
-4. avg_rating_of_driver (0.086139)
-5. trips_in_first_30_days (0.084110)
-6. avg_surge (0.069964)
-7. surge_pct (0.069027)
-8. phone (0.038627)
-9. luxury_car_user (0.032205)
-10. city: Astapor (0.014008)
-<p align='middle'>
-<img alt="Feature" src='img_ben/feature_importance.png' width=400>
-</p>
+<img alt="Feature" src='../img/rf_feature_importance.png' width=400>
+<center/>
+ <br>
 
 #### Next model hyperparameters were tuned to optimize the model
 
-modifying the number of trees
-<p align='middle'>
-<img alt="Feature" src='img_ben/num_trees.png' width=400>
+We optimized the numbers of trees, the max feature parameters, and the max_depth.  The results are shown below.
+
+
+
+<ul>
+<img src="../img/rf_num_tree.png" alt="Drawing" style="width: 250px;">
+<img src="../img/rf_num_features.png" alt="Drawing" style="width: 250px;">
+<img src="../img/rf_tree_depth.png" alt="Drawing" style="width: 250px;">
+
+</ul>
+
+
+
+   
 </p>
-modifying the max features parameter
-<p align='middle'>
-<img alt="Feature" src='img_ben/num_features.png' width=400>
-</p>
-modifying the max_depth
-<p align='middle'>
-<img alt="Feature" src='img_ben/max_depth.png' width=400>
-</p>
+
 Here are the optimized parameters:
 
-n_estimators=40,max_features=5, max_depth=10
 
 
-Here are the final optimized model metrics:
+| n_estimators       | max_features | max_depth  |
+| ------------- |:-------------:| -----:|
+| 40    | 5 | 10 |
 
-log loss : 0.465862569729533
-accuracy : 0.7819776232234654
-confusion matrix : 
-[[2453 1285]
- [ 878 5305]]
-precision : 0.8050075872534143
-recall (probability of detection): 0.8579977357269933
-<p align='middle'>
-<img alt="Feature" src='img_ben/roc.png' width=400>
-</p>
 
+
+Here are the final optimized model metrics and ROC curve:
+
+
+Confusion matrix :  
+ 
+ <br>
+<center>
+<img src="../img/rf_cm2.png" alt="Drawing" style="width: 400px;" align="center"/>
+</center>
+ <center>
+<b>Accuracy:</b>  78.2% | <b>Precision:</b> 80.5% | <b>Recall:</b> 85.8% 
+<br>
+<br>
+<img alt="Feature" src='../img/rf_roc.png' width=400>
+</center>
+<br>
+<br>
+
+    
 <b> Gradient Boosting Classifier</b>
 Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are n_estimators = 100, learning rate = 0.1, and max depth = 3.
 Accuracy: 79%
