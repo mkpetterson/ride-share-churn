@@ -59,14 +59,6 @@ def accuracy_scores(y_true, y_pred):
     
     return accuracy, recall, precision, mse
 
-def confusion_df(y_true, y_pred):
-    tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
-    
-    # Put into pandas dataframe
-    confusion = pd.DataFrame({'Predicted Negative': [tn, fn], 'Predicted Positive': [fp, tp]}, 
-                             index=['Actual Negative', 'Actual Positive']) 
-      
-    return confusion
 
 def plot_roc_curve(probabilities, labels, ax, title):
     '''

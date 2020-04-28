@@ -3,19 +3,7 @@
 Ben Weintraub, Eddie Ressegue, Maureen Petterson
 
 ## Intro
-In an effort to retain ridership at a ride share company, we wanted to predict key factors affecting churn rate. Our dataset was pulled from July 1st, 2014 and contains data spanning the previous 5 months. The 12 features are:
-- city
-- sign-up date
-- last trip date
-- average distance
-- average rating by driver
-- average rating of driver
-- surge percentage
-- average surge
-- trips in first 30 days
-- luxury car user
-- phone used for signup
-- weekday percentage
+Ridership rates at ride sharing companies can be affected by several factors, some of which may include the cost of the rides, if the user rates the driver highly, and the ride experience. We were interested in finding out what methods can be used to help retain riders and what factors affect rider attrition. Our dataset contains the ridership information tracking 50,000 users, all of whom signed up in January 2014. Various factors, including number of rides, average trip length, surge percent, and driver/passenger ratings were tracked over a 6 month period (though July 1st, 2014). At the end of the period, a user would be considered "active" if she had used the rideshare company within the past 30 days. 
 
 Churn was defined as no activity within the past 30 days, eg, no rides during the month of June. 
 
@@ -24,11 +12,11 @@ Churn was defined as no activity within the past 30 days, eg, no rides during th
 
 <b>Data Preparation</b>
 
-The dataset was alrady fairly clean, although there were 3 features with varying amounts of null values. 
+The dataset required cleaning prior to building and evaluating our models. In particular, there were 3 features with varying amounts of null values and several categorical features that needed to be transformed. 
 
 <img alt="Data" src='img/data_head.png'>
 
-Additionally, some of the features were categorical or contained information that was redundant. We made the following changes to both the train and test data:
+We made the following changes to both the train and test data:
 
 - We filled in the missing values in 'average rating of driver' with the average rating from the other entries.  16% of the data in this column was missing and we felt this was too much data to drop from our analysis. 
 
@@ -48,7 +36,7 @@ A screenshot of our cleaned dataset is below
 <img alt="Clean Data" src='img/data_clean_head.png'>
 
 
-<b>EDA</b>
+<b>Exploratory Data Analysis</b>
 
 Working on the training set only, we did some EDA to look at the distribution of the features. Below are a heatmap with correlation metrics, a histogram of numerical features, and a bar chart of the binary features. 
 
@@ -172,59 +160,50 @@ recall (probability of detection): 0.8579977357269933
 </p>
 
 <b> Gradient Boosting Classifier</b>
-Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are n_estimators = 100, learning rate = 0.1, and max depth = 3.
-Accuracy: 79%
-Precision: 86%
-Recall: 81%
 
-Feature Importances:
+Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are:
+- n_estimators = 100
+- learning rate = 0.1
+- max depth = 3
 
-<img alt="Feature" src='img/feature_import.png'>
-
-
-Looking at the training and testing errors as a function of number of trees leads to an optimized value of 137, which is pretty close to the default value. 
-
-<img alt="Test_train" src='img/test_train_errors.png'>
-
-You can see that the learning rate affects the testing errors. The default learning rate of 0.1 actually works pretty well. 
-
-<img alt="LR" src='img/lr_errors.png'>
-
-The initial parameters of the GBC seem to be close to optimal. Running this model on the test data reveals slightly lower numbers. 
-Accuracy: 78%
-Precision: 86%
-Recall: 80% 
-MSE: 0.218
-There doesn't seem to be any features that indicate leakage, although the features of average surge and surge percentage are highly correlated. 
-
-<img alt="roc" src='img/roc.png'>
-
-## Key Findings
-
-The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. All models show a very similar ROC curve.
+The results can be summarized in the confusion matrix below: 
+<br>
+<center>
+<img src="img/confusion_matrix_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
+</center>
+<center>
+<b>Accuracy:</b> 79% | <b>Precision:</b> 86% | <b>Recall:</b> 81%
+</center>
+<br>
+<br>
 
 
+The Feature Importances are shown in the table below. 
 
-## Work Flow
+<img src="img/feature_import_gbc.png" alt="Drawing" style="width: 500px;" align="center"/>
+<br>
+<br>
 
-1. Perform any cleaning, exploratory analysis, and/or visualizations to use the
-provided data for this analysis.
-   
-2. Build a predictive model to help determine the probability that a rider will
-be retained.
+Optimizing Parameters: 
 
-3. Evaluate the model.  Focus on metrics that are important for your *statistical
-model*.
- 
+Looking at the training and testing errors as a function of number of trees leads to an optimized value of 830, although the change in test errors from 100 to 1000 is relatively minimal. The learning rate also affects the testing errors, but we found that the default learning rate of 0.1 actually works pretty well. 
 
-5. Discuss the validity of your model. Issues such as
-leakage.  For more on leakage, see [this essay on
-Kaggle](https://www.kaggle.com/dansbecker/data-leakage), and this paper: [Leakage in Data
-Mining: Formulation, Detection, and Avoidance](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.365.7769&rep=rep1&type=pdf).
+<img alt="LR" src='img/errors_gbc.png'>
 
-6. Repeat 2 - 5 until you have a satisfactory model.
 
-7. Consider business decisions that your model may indicate are appropriate.
-Evaluate possible decisions with metrics that are appropriate for *decision
-rules*.
-   
+Running the "optimized" GBC model on our data results in the following ROC curve. 
+
+<img src="img/roc_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
+<br>
+
+Summary of GBC: 
+
+The Gradient Boosting Classifier works fairly well based on our scoring metrics; the area under the ROC curve is 0.85. We will need to compare this performance to that of the other models before selecting our optimal model for usage on the test data. 
+
+
+The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. Interestingly, these features were not highlighted in the correlation heatmap. 
+
+
+## Comparison of Models
+
+
