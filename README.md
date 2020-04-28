@@ -3,7 +3,7 @@
 Ben Weintraub, Eddie Ressegue, Maureen Petterson
 
 ## Intro
-In an effort to retain ridership at a ride share company, we wanted to predict key factors affecting churn rate. Our dataset was pulled from July 1st, 2014 and contains data spanning the previous 5 months. 
+Ridership rates at ride sharing companies can be affected by several factors, some of which may include the cost of the rides, if the user rates the driver highly, and the ride experience. We were interested in finding out what methods can be used to help retain riders and what factors affect rider attrition. Our dataset contains the ridership information tracking 50,000 users, all of whom signed up in January 2014. Various factors were tracked over a 6 month period. 
 
 Churn was defined as no activity within the past 30 days, eg, no rides during the month of June. 
 
