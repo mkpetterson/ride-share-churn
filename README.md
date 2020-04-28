@@ -2,6 +2,16 @@
 
 <a href="https://github.com/b-weintraub">Ben Weintraub</a> | <a href="https://github.com/redwin21">Eddie Ressegue</a> | <a href="https://github.com/mkpetterson">Maureen Petterson</a>
 
+## Table of Contents
+
+- <a href="https://github.com/mkpetterson/ride-share-churn#intro">Intro</a>  
+- <a href="https://github.com/mkpetterson/ride-share-churn#exploratory-data-analysis-and-data-preparation">Exploratory Data Analysis and Data Preparation</a> 
+- <a href="https://github.com/mkpetterson/ride-share-churn#models-investigated">Models Investigated</a>  
+- <a href="https://github.com/mkpetterson/ride-share-churn#comparison-of-models">Comparison of Models</a> 
+- <a href="https://github.com/mkpetterson/ride-share-churn#summary-and-key-findings">Summary and Key Findings</a>
+
+
+
 ## Intro
 Ridership rates at ride sharing companies can be affected by several factors, some of which may include the cost of the rides, if the user rates the driver highly, and the ride experience. We were interested in finding out what methods can be used to help retain riders and what factors affect rider attrition. 
 
@@ -45,9 +55,9 @@ Working on the training set only, we did some EDA to look at the distribution of
 <img alt="Heatmap" src='img/corr_heatmap.png' style='width: 600px;'>
 <img alt="Histograms" src='img/histograms_of_features.png'>
 
-<center>
-    <td><img src='img/binary_bar_chart.png' align='center' style='width: 400px;'></td>
-</center>
+<p align='middle'>
+    <td><img src='img/binary_bar_chart.png' align='center' width="400"></td>
+</p>
 
 ## Models Investigated
 
@@ -179,18 +189,24 @@ Out of the box metrics for Gradient Boosting Classfier were pretty good. The def
 - learning rate = 0.1
 - max depth = 3
 
-The results can be summarized in the confusion matrix below: 
+The results can be summarized in the following confusion matrix with a threshold of 50%: 
+
+
+<br>
+<br>
 <p align='middle'>
-    <td><img src='./img/confusion_matrix_gbc.png' align='center' style='width: 400px;'></td>
+    <td><img src='./img/confusion_matrix_gbc.png' align='center' width='500'></td>
 </p>
 <p align='middle'>
-    <b>Accuracy:</b> 79% | <b>Precision:</b> 86% | <b>Recall:</b> 81%
+    <b>Accuracy:</b> 79% | <b>Precision:</b> 81% | <b>Recall:</b> 86%
 </p>
+
 
 
 The Feature Importances are shown in the table below. 
-
-<img src="img/feature_import_gbc.png" alt="Drawing" style="width: 500px;" align="center"/>
+<p align='middle'>
+<img src="img/feature_import_gbc.png" alt="Drawing" width="500" align="center"/>
+</p>
 <br>
 <br>
 
@@ -203,7 +219,9 @@ Looking at the training and testing errors as a function of number of trees lead
 
 Running the "optimized" GBC model on our data results in the following ROC curve. 
 
-<img src="img/roc_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
+<p align='middle'>
+<img src="img/roc_gbc.png" alt="Drawing" width="400" align="center"/>
+</p>
 <br>
 
 Summary of GBC: 
@@ -216,14 +234,34 @@ The most influential features are: average rating by driver, surge percent, week
 
 ## Comparison of Models
 
-The ROC curves for each model were plotted on top of each other, showing that each model performs similarly to the others. Ultimately it was decided that the best model to select for testing was <>. The final results are shown below. 
+The ROC curves for each model were plotted on top of each other, showing that each model performs similarly to the others. Ultimately it was decided that the best model to select for testing was Gradient Boosting Classifier. The final results are shown below. 
 
 <p align='middle'>
-    <td><img src='./img/roc_overlay.png' align='center' style='width: 500px;'></td>
+    <td><img src='./img/roc_overlay.png' align='center' width='500'></td>
 </p>
+
+
+<br>
+<br>
+<p align='middle'>
+    <td><img src='./img/confusion_matrix_gbc_testdata.png' align='center' width='500'></td>
+</p>
+<p align='middle'>
+    <b>Accuracy:</b> 78% | <b>Precision:</b> 81% | <b>Recall:</b> 86%
+</p>
+
 
 
 ## Summary and Key Findings
 
-We showed that the best model to predict ridership churn is <>. The most important features predicting churn are <>, <>, <>, and <>. Our advice to reduce churn would be to reduce the surge pricing, see what 
+While all the models performed well, we decided to use a Gradient Boosting Classifier to predict ridership churn. While the neural network performed well, it is essentially a black box that cannnot tell us the most important features and is less helpful in determining what business practices to change. 
 
+Using the GBC model, the most important features predicting churn are average rating by driver, surge percent, weekday percent, and being in King's Landing. 
+
+<b>Recommendations</b>
+
+The average rating by driver (or the passenger rating) is not something that can be changed by the company. We suspect that passengers with poor ratings are not selected by drivers, and thus have a harder time getting rides. This leads to attrition, but perhaps it isn't bad for the company to lose the worst riders. 
+
+A reduction in surge pricing or a reduction in surge hours would certainly help retain riders, as cost of the service can be a barrier. 
+
+King's landing was also an important feature and people in King's Landing are less likely to churn than in Astapor: 37% vs 74%. Winterfell fall sin between the two and has a churn rate of 65%. These differences could possibly be due to operational differences in the three cities and research should be conducted into why the churn rates vary.  

@@ -71,37 +71,50 @@ We chose 3 different models to test: Neural Networks, Random Forest, and Gradien
 
 
 <b> Gradient Boosting Classifier</b>
-Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are n_estimators = 100, learning rate = 0.1, and max depth = 3.
-- Accuracy: 79%
-- Precision: 86%
-- Recall: 81%
 
-Feature Importances:
+Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are:
+- n_estimators = 100
+- learning rate = 0.1
+- max depth = 3
 
+The results can be summarized in the confusion matrix below: 
+<img src="img/confusion_matrix_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
 
-<img src="img/feature_import.png" alt="Drawing" style="width: 400px;" align="center"/>
-
-
-Looking at the training and testing errors as a function of number of trees leads to an optimized value of 137, which is pretty close to the default value. The learning rate also affects the testing errors. The default learning rate of 0.1 actually works pretty well. 
-
-<img alt="LR" src='img/errors.png'>
-
-
-The initial parameters of the GBC seem to be close to optimal. Running this model on the test data reveals slightly lower numbers. 
-- Accuracy: 78%
-- Precision: 86%
-- Recall: 80% 
-- MSE: 0.218
-There doesn't seem to be any features that indicate leakage, although the features of average surge and surge percentage are highly correlated. 
-
-<img src="img/roc.png" alt="Drawing" style="width: 400px;" align="center"/>
+<center>
+    <b>Accuracy:</b> 79% | <b>Precision:</b> 86% | <b>Recall:</b> 81%
+</center>
+<br>
+<br>
 
 
-The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. Looking more into these features shows that there is a difference in churn rate. 
-<img src="img/avg_churn.png" alt="Drawing" style="width: 600px;" align="center"/>
+The Feature Importances are shown in the table below. 
+
+<img src="img/feature_import_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
+<br>
+<br>
+
+Optimizing Parameters: 
+
+Looking at the training and testing errors as a function of number of trees leads to an optimized value of 830, although the change in test errors from 100 to 1000 is relatively minimal. The learning rate also affects the testing errors, but we found that the default learning rate of 0.1 actually works pretty well. 
+
+<img alt="LR" src='img/errors_gbc.png'>
 
 
-## Key Findings
+Running the "optimized" GBC model on our data results in the following ROC curve. 
+
+<img src="img/roc_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
+<br>
+
+Summary of GBC: 
+
+The Gradient Boosting Classifier works fairly well based on our scoring metrics; the area under the ROC curve is 0.85. We will need to compare this performance to that of the other models before selecting our optimal model for usage on the test data. 
+
+
+The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. Interestingly, these features were not highlighted in the correlation heatmap. 
+
+## Comparison of Models
+
+
 
 
 
