@@ -30,6 +30,11 @@ Moderate tuning of the hyperparameters was done to achieve a final, satisfactory
     <td><img src='../img/metrics_nn.png' align='center' style='width: 800px;'></td>
 </p>
 
+A confusion matrix with a threshold of 50% can be seen here:
+
+<p align='middle'>
+    <td><img src='../img/nn_conf_mat.png' align='center' style='width: 500px;'></td>
+</p>
 
 <p align='middle'>
     <td><img src='../img/roc_nn.png' align='center' style='width: 500px;'></td>
