@@ -179,13 +179,13 @@ Out of the box metrics for Gradient Boosting Classfier were pretty good. The def
 - learning rate = 0.1
 - max depth = 3
 
-The results can be summarized in the confusion matrix below: 
+The results can be summarized in the following confusion matrix with a threshold of 50%: 
 
 
 <br>
 <br>
 <p align='middle'>
-    <td><img src='./img/confusion_matrix_gbc.png' align='center' width='400'></td>
+    <td><img src='./img/confusion_matrix_gbc.png' align='center' width='500'></td>
 </p>
 <p align='middle'>
     <b>Accuracy:</b> 79% | <b>Precision:</b> 86% | <b>Recall:</b> 81%
@@ -194,8 +194,9 @@ The results can be summarized in the confusion matrix below:
 
 
 The Feature Importances are shown in the table below. 
-
+<p align='middle'>
 <img src="img/feature_import_gbc.png" alt="Drawing" width="500" align="center"/>
+</p>
 <br>
 <br>
 
@@ -226,11 +227,13 @@ The most influential features are: average rating by driver, surge percent, week
 The ROC curves for each model were plotted on top of each other, showing that each model performs similarly to the others. Ultimately it was decided that the best model to select for testing was <>. The final results are shown below. 
 
 <p align='middle'>
-    <td><img src='./img/roc_overlay.png' align='center' style='width: 500px;'></td>
+    <td><img src='./img/roc_overlay.png' align='center' width='500'></td>
 </p>
 
 
 ## Summary and Key Findings
 
-We showed that the best model to predict ridership churn is <>. The most important features predicting churn are <>, <>, <>, and <>. Our advice to reduce churn would be to reduce the surge pricing, see what 
+While all the models performed well, decided to use <> to predict ridership churn. While the neural network performed well, it is essentially a black box that cannnot tell us the most important features and is less helpful in determining what business practices to change. 
+
+Using <> model, the most important features predicting churn are <>, <>, <>, and <>. Our advice to reduce churn would be to reduce the surge pricing or the length of time for which surge pricing is active. 
 
