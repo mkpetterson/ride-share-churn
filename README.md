@@ -45,9 +45,9 @@ Working on the training set only, we did some EDA to look at the distribution of
 <img alt="Heatmap" src='img/corr_heatmap.png' style='width: 600px;'>
 <img alt="Histograms" src='img/histograms_of_features.png'>
 
-<center>
+<p align='middle'>
     <td><img src='img/binary_bar_chart.png' align='center' width="400"></td>
-</center>
+</p>
 
 ## Models Investigated
 
@@ -208,7 +208,9 @@ Looking at the training and testing errors as a function of number of trees lead
 
 Running the "optimized" GBC model on our data results in the following ROC curve. 
 
+<p align='middle'>
 <img src="img/roc_gbc.png" alt="Drawing" width="400" align="center"/>
+</p>
 <br>
 
 Summary of GBC: 
