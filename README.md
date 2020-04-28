@@ -3,7 +3,7 @@
 Ben Weintraub, Eddie Ressegue, Maureen Petterson
 
 ## Intro
-Ridership rates at ride sharing companies can be affected by several factors, some of which may include the cost of the rides, if the user rates the driver highly, and the ride experience. We were interested in finding out what methods can be used to help retain riders and what factors affect rider attrition. Our dataset contains the ridership information tracking 50,000 users, all of whom signed up in January 2014. Various factors were tracked over a 6 month period. 
+Ridership rates at ride sharing companies can be affected by several factors, some of which may include the cost of the rides, if the user rates the driver highly, and the ride experience. We were interested in finding out what methods can be used to help retain riders and what factors affect rider attrition. Our dataset contains the ridership information tracking 50,000 users, all of whom signed up in January 2014. Various factors, including number of rides, average trip length, surge percent, and driver/passenger ratings were tracked over a 6 month period (though July 1st, 2014). At the end of the period, a user would be considered "active" if she had used the rideshare company within the past 30 days. 
 
 Churn was defined as no activity within the past 30 days, eg, no rides during the month of June. 
 
@@ -12,11 +12,11 @@ Churn was defined as no activity within the past 30 days, eg, no rides during th
 
 <b>Data Preparation</b>
 
-The dataset was alrady fairly clean, although there were 3 features with varying amounts of null values. 
+The dataset required cleaning prior to building and evaluating our models. In particular, there were 3 features with varying amounts of null values and several categorical features that needed to be transformed. 
 
 <img alt="Data" src='img/data_head.png'>
 
-Additionally, some of the features were categorical or contained information that was redundant. We made the following changes to both the train and test data:
+We made the following changes to both the train and test data:
 
 - We filled in the missing values in 'average rating of driver' with the average rating from the other entries.  16% of the data in this column was missing and we felt this was too much data to drop from our analysis. 
 
@@ -36,7 +36,7 @@ A screenshot of our cleaned dataset is below
 <img alt="Clean Data" src='img/data_clean_head.png'>
 
 
-<b>EDA</b>
+<b>Exploratory Data Analysis</b>
 
 Working on the training set only, we did some EDA to look at the distribution of the features. Below are a heatmap with correlation metrics, a histogram of numerical features, and a bar chart of the binary features. 
 
