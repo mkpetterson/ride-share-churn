@@ -3,7 +3,19 @@
 Ben Weintraub, Eddie Ressegue, Maureen Petterson
 
 ## Intro
-In an effort to retain ridership at a ride share company, we wanted to predict key factors affecting churn rate. Our dataset was pulled from July 1st, 2014 and contains data spanning the previous 5 months. 
+In an effort to retain ridership at a ride share company, we wanted to predict key factors affecting churn rate. Our dataset was pulled from July 1st, 2014 and contains data spanning the previous 5 months. The 12 features are:
+- city
+- sign-up date
+- last trip date
+- average distance
+- average rating by driver
+- average rating of driver
+- surge percentage
+- average surge
+- trips in first 30 days
+- luxury car user
+- phone used for signup
+- weekday percentage
 
 Churn was defined as no activity within the past 30 days, eg, no rides during the month of June. 
 
@@ -94,9 +106,7 @@ We used the following metrics to compare our models including log loss, accuracy
 
 For the random forest classifier model with all the out-of-the-box default settings, the model had the following performance metrics:
 
-Log loss : 1.58
 
-Accuracy : 74% 
 
 Confusion matrix : 
 
@@ -104,9 +114,14 @@ Confusion matrix :
 
  [1375 4808]]
  
-precision : 80% 
 
-Recall (probability of detection): 77.7%
+
+| Log loss      | Accuracy      | precision  |  Recall  |
+| ------------- |:-------------:| ----------:| --------:|
+| 1.58          |          74%  |       80%  |  77.7%   |
+
+
+
 
 
 The following were found to be the most important features:
@@ -160,48 +175,59 @@ recall (probability of detection): 0.8579977357269933
 </p>
 
 <b> Gradient Boosting Classifier</b>
+Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are n_estimators = 100, learning rate = 0.1, and max depth = 3.
+Accuracy: 79%
+Precision: 86%
+Recall: 81%
 
-Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are:
-- n_estimators = 100
-- learning rate = 0.1
-- max depth = 3
+Feature Importances:
 
-The results can be summarized in the confusion matrix below: 
-<img src="img/confusion_matrix_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
-
-<center>
-    <b>Accuracy:</b> 79% | <b>Precision:</b> 86% | <b>Recall:</b> 81%
-</center>
-<br>
-<br>
+<img alt="Feature" src='img/feature_import.png'>
 
 
-The Feature Importances are shown in the table below. 
+Looking at the training and testing errors as a function of number of trees leads to an optimized value of 137, which is pretty close to the default value. 
 
-<img src="img/feature_import_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
-<br>
-<br>
+<img alt="Test_train" src='img/test_train_errors.png'>
 
-Optimizing Parameters: 
+You can see that the learning rate affects the testing errors. The default learning rate of 0.1 actually works pretty well. 
 
-Looking at the training and testing errors as a function of number of trees leads to an optimized value of 830, although the change in test errors from 100 to 1000 is relatively minimal. The learning rate also affects the testing errors, but we found that the default learning rate of 0.1 actually works pretty well. 
+<img alt="LR" src='img/lr_errors.png'>
 
-<img alt="LR" src='img/errors_gbc.png'>
+The initial parameters of the GBC seem to be close to optimal. Running this model on the test data reveals slightly lower numbers. 
+Accuracy: 78%
+Precision: 86%
+Recall: 80% 
+MSE: 0.218
+There doesn't seem to be any features that indicate leakage, although the features of average surge and surge percentage are highly correlated. 
 
+<img alt="roc" src='img/roc.png'>
 
-Running the "optimized" GBC model on our data results in the following ROC curve. 
+## Key Findings
 
-<img src="img/roc_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
-<br>
-
-Summary of GBC: 
-
-The Gradient Boosting Classifier works fairly well based on our scoring metrics; the area under the ROC curve is 0.85. We will need to compare this performance to that of the other models before selecting our optimal model for usage on the test data. 
-
-
-The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. Interestingly, these features were not highlighted in the correlation heatmap. 
+The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. All models show a very similar ROC curve.
 
 
-## Comparison of Models
 
+## Work Flow
 
+1. Perform any cleaning, exploratory analysis, and/or visualizations to use the
+provided data for this analysis.
+   
+2. Build a predictive model to help determine the probability that a rider will
+be retained.
+
+3. Evaluate the model.  Focus on metrics that are important for your *statistical
+model*.
+ 
+
+5. Discuss the validity of your model. Issues such as
+leakage.  For more on leakage, see [this essay on
+Kaggle](https://www.kaggle.com/dansbecker/data-leakage), and this paper: [Leakage in Data
+Mining: Formulation, Detection, and Avoidance](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.365.7769&rep=rep1&type=pdf).
+
+6. Repeat 2 - 5 until you have a satisfactory model.
+
+7. Consider business decisions that your model may indicate are appropriate.
+Evaluate possible decisions with metrics that are appropriate for *decision
+rules*.
+   
