@@ -31,10 +31,10 @@ def plot_roc_curve(probabilities, labels, ax, title):
         fpr.append(num_incorrect_pred / num_false_pos)
         
     mean_auc = auc(fpr, tpr)
-    ax.plot(fpr, tpr, 'b', label='ROC (area = %2.2f)' % mean_auc, lw=2)
+    ax.plot(fpr, tpr, label=title + ' (area = %2.2f)' % mean_auc, lw=2)
     ax.set_xlabel('False Positive Rate', fontsize=20)
     ax.set_ylabel('True Positive Rate', fontsize=20)
-    ax.set_title('Receiver Operating Characteristic: %s' % title, fontsize=20)
+    ax.set_title('Receiver Operating Characteristic', fontsize=20)
     ax.legend(loc="lower right", fontsize=15)
     ax.plot(thresholds, thresholds, color='k', ls='--', alpha=.5)
         
