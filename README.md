@@ -1,9 +1,11 @@
-# Predicting Churn in Ride Share Company
+# Predicting Churn in a Ride Share Company
 
-Ben Weintraub, Eddie Ressegue, Maureen Petterson
+<a href="https://github.com/b-weintraub">Ben Weintraub</a> | <a href="https://github.com/redwin21">Eddie Ressegue</a> | <a href="https://github.com/mkpetterson">Maureen Petterson</a>
 
 ## Intro
-Ridership rates at ride sharing companies can be affected by several factors, some of which may include the cost of the rides, if the user rates the driver highly, and the ride experience. We were interested in finding out what methods can be used to help retain riders and what factors affect rider attrition. Our dataset contains the ridership information tracking 50,000 users, all of whom signed up in January 2014. Various factors, including number of rides, average trip length, surge percent, and driver/passenger ratings were tracked over a 6 month period (though July 1st, 2014). At the end of the period, a user would be considered "active" if she had used the rideshare company within the past 30 days. 
+Ridership rates at ride sharing companies can be affected by several factors, some of which may include the cost of the rides, if the user rates the driver highly, and the ride experience. We were interested in finding out what methods can be used to help retain riders and what factors affect rider attrition. 
+
+Our dataset contains the ridership information tracking 50,000 users, all of whom signed up in January 2014. Various factors, including number of rides, average trip length, surge percent, and driver/passenger ratings were tracked over a 6 month period (though July 1st, 2014). At the end of the period, a user would be considered "active" if she had used the rideshare company within the past 30 days. 
 
 Churn was defined as no activity within the past 30 days, eg, no rides during the month of June. 
 
@@ -40,12 +42,12 @@ A screenshot of our cleaned dataset is below
 
 Working on the training set only, we did some EDA to look at the distribution of the features. Below are a heatmap with correlation metrics, a histogram of numerical features, and a bar chart of the binary features. 
 
-<img alt="Heatmap" src='img/corr_heatmap.png'>
+<img alt="Heatmap" src='img/corr_heatmap.png' style='width: 600px;'>
 <img alt="Histograms" src='img/histograms_of_features.png'>
 
-<p align='middle'>
-    <td><img src='img/binary_bar_chart.png' align='center' style='width: 600px;'></td>
-</p>
+<center>
+    <td><img src='img/binary_bar_chart.png' align='center' style='width: 400px;'></td>
+</center>
 
 ## Models Investigated
 
