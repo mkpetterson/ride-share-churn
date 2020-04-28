@@ -2,6 +2,9 @@
 
 <a href="https://github.com/b-weintraub">Ben Weintraub</a> | <a href="https://github.com/redwin21">Eddie Ressegue</a> | <a href="https://github.com/mkpetterson">Maureen Petterson</a>
 
+
+
+
 ## Intro
 Ridership rates at ride sharing companies can be affected by several factors, some of which may include the cost of the rides, if the user rates the driver highly, and the ride experience. We were interested in finding out what methods can be used to help retain riders and what factors affect rider attrition. 
 
@@ -188,7 +191,7 @@ The results can be summarized in the following confusion matrix with a threshold
     <td><img src='./img/confusion_matrix_gbc.png' align='center' width='500'></td>
 </p>
 <p align='middle'>
-    <b>Accuracy:</b> 79% | <b>Precision:</b> 86% | <b>Recall:</b> 81%
+    <b>Accuracy:</b> 79% | <b>Precision:</b> 81% | <b>Recall:</b> 86%
 </p>
 
 
@@ -224,16 +227,34 @@ The most influential features are: average rating by driver, surge percent, week
 
 ## Comparison of Models
 
-The ROC curves for each model were plotted on top of each other, showing that each model performs similarly to the others. Ultimately it was decided that the best model to select for testing was <>. The final results are shown below. 
+The ROC curves for each model were plotted on top of each other, showing that each model performs similarly to the others. Ultimately it was decided that the best model to select for testing was Gradient Boosting Classifier. The final results are shown below. 
 
 <p align='middle'>
     <td><img src='./img/roc_overlay.png' align='center' width='500'></td>
 </p>
 
 
+<br>
+<br>
+<p align='middle'>
+    <td><img src='./img/confusion_matrix_gbc_testdata.png' align='center' width='500'></td>
+</p>
+<p align='middle'>
+    <b>Accuracy:</b> 78% | <b>Precision:</b> 81% | <b>Recall:</b> 86%
+</p>
+
+
+
 ## Summary and Key Findings
 
-While all the models performed well, decided to use <> to predict ridership churn. While the neural network performed well, it is essentially a black box that cannnot tell us the most important features and is less helpful in determining what business practices to change. 
+While all the models performed well, we decided to use a Gradient Boosting Classifier to predict ridership churn. While the neural network performed well, it is essentially a black box that cannnot tell us the most important features and is less helpful in determining what business practices to change. 
 
-Using <> model, the most important features predicting churn are <>, <>, <>, and <>. Our advice to reduce churn would be to reduce the surge pricing or the length of time for which surge pricing is active. 
+Using the GBC model, the most important features predicting churn are average rating by driver, surge percent, weekday percent, and being in King's Landing. 
 
+<b>Recommendations</b>
+
+The average rating by driver (or the passenger rating) is not something that can be changed by the company. We suspect that passengers with poor ratings are not selected by drivers, and thus have a harder time getting rides. This leads to attrition, but perhaps it isn't bad for the company to lose the worst riders. 
+
+A reduction in surge pricing or a reduction in surge hours would certainly help retain riders, as cost of the service can be a barrier. 
+
+King's landing was also an important feature and people in King's Landing are more likely to remain active. This could possibly be due to differences in how drivers in that city operate. Research should be conducted into the different business practices in the 3 different cities. 
