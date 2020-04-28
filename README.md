@@ -236,3 +236,8 @@ The ROC curves for each model were plotted on top of each other, showing that ea
 
 We showed that the best model to predict ridership churn is <>. The most important features predicting churn are <>, <>, <>, and <>. Our advice to reduce churn would be to reduce the surge pricing, see what 
 
+<<<<<<< HEAD
+=======
+King's landing was also an important feature and people in King's Landing are less likely to churn than in Astapor: 37% vs 74%. Winterfell falls in between the two and has a churn rate of 65%. These differences could possibly be due to operational differences in the three cities and research should be conducted into why the churn rates vary.  
+
+>>>>>>> 4842787e6a0e3d08970b1dd41c2ec9951dd2dd56
