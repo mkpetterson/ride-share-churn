@@ -46,7 +46,7 @@ Working on the training set only, we did some EDA to look at the distribution of
 <img alt="Histograms" src='img/histograms_of_features.png'>
 
 <center>
-    <td><img src='img/binary_bar_chart.png' align='center' style='width: 400px;'></td>
+    <td><img src='img/binary_bar_chart.png' align='center' width="400"></td>
 </center>
 
 ## Models Investigated
@@ -171,7 +171,7 @@ Out of the box metrics for Gradient Boosting Classfier were pretty good. The def
 The results can be summarized in the confusion matrix below: 
 <br>
 <center>
-<img src="img/confusion_matrix_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
+<img src="img/confusion_matrix_gbc.png" alt="Drawing" width="350" align="center"/>
 </center>
 <center>
 <b>Accuracy:</b> 79% | <b>Precision:</b> 86% | <b>Recall:</b> 81%
@@ -182,7 +182,7 @@ The results can be summarized in the confusion matrix below:
 
 The Feature Importances are shown in the table below. 
 
-<img src="img/feature_import_gbc.png" alt="Drawing" style="width: 500px;" align="center"/>
+<img src="img/feature_import_gbc.png" alt="Drawing" width="500" align="center"/>
 <br>
 <br>
 
@@ -195,7 +195,7 @@ Looking at the training and testing errors as a function of number of trees lead
 
 Running the "optimized" GBC model on our data results in the following ROC curve. 
 
-<img src="img/roc_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
+<img src="img/roc_gbc.png" alt="Drawing" width="400" align="center"/>
 <br>
 
 Summary of GBC: 
