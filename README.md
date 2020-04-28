@@ -167,10 +167,12 @@ Out of the box metrics for Gradient Boosting Classfier were pretty good. The def
 - max depth = 3
 
 The results can be summarized in the confusion matrix below: 
-<img src="img/confusion_matrix_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
-
+<br>
 <center>
-    <b>Accuracy:</b> 79% | <b>Precision:</b> 86% | <b>Recall:</b> 81%
+<img src="img/confusion_matrix_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
+</center>
+<center>
+<b>Accuracy:</b> 79% | <b>Precision:</b> 86% | <b>Recall:</b> 81%
 </center>
 <br>
 <br>
@@ -178,7 +180,7 @@ The results can be summarized in the confusion matrix below:
 
 The Feature Importances are shown in the table below. 
 
-<img src="img/feature_import_gbc.png" alt="Drawing" style="width: 400px;" align="center"/>
+<img src="img/feature_import_gbc.png" alt="Drawing" style="width: 500px;" align="center"/>
 <br>
 <br>
 
