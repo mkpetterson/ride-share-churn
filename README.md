@@ -114,40 +114,21 @@ The final model seems to make predictions in line with the Random Forest and Gra
 
 We used the following metrics to compare our models including accuracy, precision, recall, and confusion matrices.  Below are the definitions.
 
-Accuracy : 74% 
-
-Confusion matrix : 
-
-[[2566 1172]
-
- [1375 4808]]
- 
- <br>
-<center>
-<img src="./img/rf_cm1.png" alt="Drawing" style="width: 400px;" align="center"/>
-</center>
- <center>
-<b>Accuracy:</b>  74% | <b>Precision:</b> 80% | <b>Recall:</b> 77.7% 
-</center>
-<br>
-<br>
-
-Recall (probability of detection): 77.7%
+<p align='middle'>
+    <td><img src='./img/rf_cm1.png' align='center' style='width: 400px;'></td>
+</p>
+<p align='middle'>
+    <b>Accuracy:</b>  74% | <b>Precision:</b> 80% | <b>Recall:</b> 77.7% 
+</p>
 
 
 The following were found to be the most important features:
 
-Feature ranking: 
+<p align='middle'>
+    <td><img alt="Feature" src='./img/rf_feature_importance.png' width=400></td>
+</p>
 
-<img alt="Feature" src='./img/rf_feature_importance.png' width=400>
-<center/>
- <br>
-
-#### Next model hyperparameters were tuned to optimize the model
-
-We optimized the numbers of trees, the max feature parameters, and the max_depth.  The results are shown below.
-
-
+Next model hyperparameters were tuned to optimize the model. We optimized the numbers of trees, the max feature parameters, and the max_depth.  The results are shown below.
 
 <ul>
 <img src="./img/rf_num_tree.png" alt="Drawing" style="width: 250px;">
@@ -156,36 +137,31 @@ We optimized the numbers of trees, the max feature parameters, and the max_depth
 
 </ul>
 
-
-
-   
-</p>
 Here are the optimized parameters:
 
-n_estimators=40,max_features=5, max_depth=10
+- n_estimators=40
+- max_features=5
+- max_depth=10
 
-
-Here are the final optimized model metrics:
 
 Here are the final optimized model metrics and ROC curve:
 
 
 Confusion matrix :  
- 
- <br>
-<center>
-<img src="./img/rf_cm2.png" alt="Drawing" style="width: 400px;" align="center"/>
-</center>
- <center>
-<b>Accuracy:</b>  78.2% | <b>Precision:</b> 80.5% | <b>Recall:</b> 85.8% 
-<br>
-<br>
-<img alt="Feature" src='./img/rf_roc.png' width=400>
-</center>
-<br>
-<br>
 
-<b> Gradient Boosting Classifier</b>
+<p align='middle'>
+    <td><img src='./img/rf_cm2.png' align='center' style='width: 400px;'></td>
+</p>
+<p align='middle'>
+    <b>Accuracy:</b>  78.2% | <b>Precision:</b> 80.5% | <b>Recall:</b> 85.8%
+</p>
+
+<p align='middle'>
+    <td><img alt="Feature" src='./img/rf_roc.png' width=400></td>
+</p>
+
+
+### Gradient Boosting Classifier
 
 Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are:
 - n_estimators = 100
@@ -261,12 +237,10 @@ While all the models performed well, we decided to use a Gradient Boosting Class
 
 Using the GBC model, the most important features predicting churn are average rating by driver, surge percent, weekday percent, and being in King's Landing. 
 
-<b>Recommendations</b>
+### Recommendations
 
 The average rating by driver (or the passenger rating) is not something that can be changed by the company. We suspect that passengers with poor ratings are not selected by drivers, and thus have a harder time getting rides. This leads to attrition, but perhaps it isn't bad for the company to lose the worst riders. 
 
 A reduction in surge pricing or a reduction in surge hours would certainly help retain riders, as cost of the service can be a barrier. 
 
 King's landing was also an important feature and people in King's Landing are less likely to churn than in Astapor: 37% vs 74%. Winterfell falls in between the two and has a churn rate of 65%. These differences could possibly be due to operational differences in the three cities and research should be conducted into why the churn rates vary.  
-
-DELETE THIS SENTENCE
