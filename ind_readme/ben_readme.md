@@ -101,8 +101,7 @@ The ROC curve resides in the same range as the other models analyzed.
 <b> Random Forest</b>
 
 
-We used the following metrics to compare our models including log loss, accuracy, confusion matrices, precision, and recall.  Below are the definitions.
-#### log loss = -(ylog p) + (1-y)*log (1-p))
+We used the following metrics to compare our models including accuracy, precision, recall, and confusion matrices.  Below are the definitions.
 
 For the random forest classifier model with all the out-of-the-box default settings, the model had the following performance metrics:
 
@@ -114,11 +113,21 @@ Confusion matrix :
 
  [1375 4808]]
  
+ 
+ <br>
+<center>
+<img src="../img/rf_cm1.png" alt="Drawing" style="width: 400px;" align="center"/>
+</center>
+ <center>
+<b>Accuracy:</b>  74% | <b>Precision:</b> 80% | <b>Recall:</b> 77.7% 
+</center>
+<br>
+<br>
 
 
 | Log loss      | Accuracy      | precision  |  Recall  |
 | ------------- |:-------------:| ----------:| --------:|
-| 1.58          |          74%  |       80%  |  77.7%   |
+| 1.58          |           |         |    |
 
 
 
