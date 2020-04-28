@@ -208,4 +208,11 @@ The most influential features are: average rating by driver, surge percent, week
 
 ## Comparison of Models
 
+The ROC curves for each model were plotted on top of each other, showing that each model performs similarly to the others. Ultimately it was decided that the best model to select for testing was <>. The final results are shown below. 
+
+
+
+## Summary and Key Findings
+
+We showed that the best model to predict ridership churn is <>. The most important features predicting churn are <>, <>, <>, and <>. Our advice to reduce churn would be to reduce the surge pricing, see what 
 
