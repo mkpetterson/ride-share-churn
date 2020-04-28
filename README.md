@@ -4,11 +4,11 @@
 
 ## Table of Contents
 
-<a href="https://github.com/mkpetterson/ride-share-churn#intro">Intro</a>
-<a href="https://github.com/mkpetterson/ride-share-churn#exploratory-data-analysis-and-data-preparation">Exploratory Data Analysis and Data Preparation</a>
-<a href="https://github.com/mkpetterson/ride-share-churn#models-investigated">Models Investigated</a>
-<a href="https://github.com/mkpetterson/ride-share-churn#comparison-of-models">Comparison of Models</a>
-<a href="https://github.com/mkpetterson/ride-share-churn#summary-and-key-findings">Summary and Key Findings</a>
+- <a href="https://github.com/mkpetterson/ride-share-churn#intro">Intro</a>  
+- <a href="https://github.com/mkpetterson/ride-share-churn#exploratory-data-analysis-and-data-preparation">Exploratory Data Analysis and Data Preparation</a> 
+- <a href="https://github.com/mkpetterson/ride-share-churn#models-investigated">Models Investigated</a>  
+- <a href="https://github.com/mkpetterson/ride-share-churn#comparison-of-models">Comparison of Models</a> 
+- <a href="https://github.com/mkpetterson/ride-share-churn#summary-and-key-findings">Summary and Key Findings</a>
 
 
 
