@@ -122,7 +122,7 @@ Confusion matrix :
  
  <br>
 <center>
-<img src="../img/rf_cm1.png" alt="Drawing" style="width: 400px;" align="center"/>
+<img src="./img/rf_cm1.png" alt="Drawing" style="width: 400px;" align="center"/>
 </center>
  <center>
 <b>Accuracy:</b>  74% | <b>Precision:</b> 80% | <b>Recall:</b> 77.7% 
@@ -137,7 +137,7 @@ In the random forest model the following were found to be the most important fea
  <br>
 <center>
 
-<img alt="Feature" src='../img/rf_feature_importance.png' width=400>
+<img alt="Feature" src='./img/rf_feature_importance.png' width=400>
 <center/>
  <br>
 
@@ -148,9 +148,9 @@ We optimized the numbers of trees, the max feature parameters, and the max_depth
 
 
 <ul>
-<img src="../img/rf_num_tree.png" alt="Drawing" style="width: 250px;">
-<img src="../img/rf_num_features.png" alt="Drawing" style="width: 250px;">
-<img src="../img/rf_tree_depth.png" alt="Drawing" style="width: 250px;">
+<img src="./img/rf_num_tree.png" alt="Drawing" style="width: 250px;">
+<img src="./img/rf_num_features.png" alt="Drawing" style="width: 250px;">
+<img src="./img/rf_tree_depth.png" alt="Drawing" style="width: 250px;">
 
 </ul>
 
@@ -176,13 +176,13 @@ Confusion matrix :
  
  <br>
 <center>
-<img src="../img/rf_cm2.png" alt="Drawing" style="width: 400px;" align="center"/>
+<img src="./img/rf_cm2.png" alt="Drawing" style="width: 400px;" align="center"/>
 </center>
  <center>
 <b>Accuracy:</b>  78.2% | <b>Precision:</b> 80.5% | <b>Recall:</b> 85.8% 
 <br>
 <br>
-<img alt="Feature" src='../img/rf_roc.png' width=400>
+<img alt="Feature" src='./img/rf_roc.png' width=400>
 </center>
 <br>
 <br>
