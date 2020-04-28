@@ -36,6 +36,8 @@ A confusion matrix with a threshold of 50% can be seen here:
     <td><img src='../img/nn_conf_mat.png' align='center' style='width: 500px;'></td>
 </p>
 
+This matrix shows a large amount of false negatives, with a relatively small amount of false positives, so it is great at predicting positives but not negatives. This explains the high relative precision and low accuracy and recall.
+
 <p align='middle'>
     <td><img src='../img/roc_nn.png' align='center' style='width: 500px;'></td>
 </p>
