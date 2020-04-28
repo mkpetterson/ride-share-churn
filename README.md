@@ -181,18 +181,11 @@ Out of the box metrics for Gradient Boosting Classfier were pretty good. The def
 
 The results can be summarized in the confusion matrix below: 
 
-<br>
-<center>
-<img src="img/confusion_matrix_gbc.png" alt="Drawing" width="450" align="center"/>
-</center>
-<center>
-<b>Accuracy:</b> 79% | <b>Precision:</b> 86% | <b>Recall:</b> 81%
-</center>
+
 <br>
 <br>
-=======
 <p align='middle'>
-    <td><img src='./img/confusion_matrix_gbc.png' align='center' style='width: 400px;'></td>
+    <td><img src='./img/confusion_matrix_gbc.png' align='center' width='400'></td>
 </p>
 <p align='middle'>
     <b>Accuracy:</b> 79% | <b>Precision:</b> 86% | <b>Recall:</b> 81%
