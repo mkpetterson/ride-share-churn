@@ -102,3 +102,15 @@ def plot_roc_curve(probabilities, labels, ax, title):
     ax.plot(thresholds, thresholds, color='k', ls='--', alpha=.5)
         
     return ax#, tpr, fpr, thresholds
+
+
+def train_test_score(n, model, X_train, X_test, y_train, y_test):
+    train_score = np.zeros(n)
+    for i, y_pred in enumerate(model.staged_predict(X_train)):
+        train_score[i] = model.loss_(y_train, y_pred)
+
+    test_score = np.zeros(n)
+    for i, y_pred in enumerate(model.staged_predict(X_test)):
+        test_score[i] = model.loss_(y_test, y_pred)
+    
+    return train_score, test_score

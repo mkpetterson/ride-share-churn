@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.metrics import confusion_matrix,
+from sklearn.metrics import confusion_matrix
 
 
 def confusion_df(y_true, y_pred):
