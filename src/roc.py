@@ -16,7 +16,7 @@ def plot_roc_curve(probabilities, labels, ax, title):
     ROC curve.
     '''
     probabilities = probabilities.reshape(labels.shape)
-    thresholds = np.linspace(0.01, 0.99, 100)
+    thresholds = np.linspace(0.01, 0.99, 1000)
     tpr = []
     fpr = []
     

@@ -22,7 +22,7 @@ Churn was defined as no activity within the past 30 days, eg, no rides during th
 
 ## Exploratory Data Analysis and Data Preparation
 
-<b>Data Preparation</b>
+### Data Preparation
 
 The dataset required cleaning prior to building and evaluating our models. In particular, there were 3 features with varying amounts of null values and several categorical features that needed to be transformed. 
 
@@ -48,7 +48,7 @@ A screenshot of our cleaned dataset is below
 <img alt="Clean Data" src='img/data_clean_head.png'>
 
 
-<b>Exploratory Data Analysis</b>
+### Exploratory Data Analysis
 
 Working on the training set only, we did some EDA to look at the distribution of the features. Below are a heatmap with correlation metrics, a histogram of numerical features, and a bar chart of the binary features. 
 
@@ -114,38 +114,21 @@ The final model seems to make predictions in line with the Random Forest and Gra
 
 We used the following metrics to compare our models including accuracy, precision, recall, and confusion matrices.  Below are the definitions.
 
-For the random forest classifier model with all the out-of-the-box default settings, the model had the following performance metrics:
+<p align='middle'>
+    <td><img src='./img/rf_cm1.png' align='center' style='width: 400px;'></td>
+</p>
+<p align='middle'>
+    <b>Accuracy:</b>  74% | <b>Precision:</b> 80% | <b>Recall:</b> 77.7% 
+</p>
 
 
+The following were found to be the most important features:
 
-Confusion matrix :  
- 
- <br>
-<center>
-<img src="img/rf_cm1.png" alt="Drawing" style="width: 400px;" align="center"/>
-</center>
- <center>
-<b>Accuracy:</b>  74% | <b>Precision:</b> 80% | <b>Recall:</b> 77.7% 
-</center>
-<br>
-<br>
+<p align='middle'>
+    <td><img alt="Feature" src='./img/rf_feature_importance.png' width=400></td>
+</p>
 
-
-In the random forest model the following were found to be the most important features.  It can be seen that the top 3 included avg_dist, weekday_pct, and avg_rating_by_driver.
-
-
- <br>
-<center>
-
-<img alt="Feature" src='img/rf_feature_importance.png' width=400>
-<center/>
- <br>
-
-#### Next model hyperparameters were tuned to optimize the model
-
-We optimized the numbers of trees, the max feature parameters, and the max_depth.  The results are shown below.
-
-
+Next model hyperparameters were tuned to optimize the model. We optimized the numbers of trees, the max feature parameters, and the max_depth.  The results are shown below.
 
 <ul>
 <img src="img/rf_num_tree.png" alt="Drawing" style="width: 250px;">
@@ -154,40 +137,31 @@ We optimized the numbers of trees, the max feature parameters, and the max_depth
 
 </ul>
 
-
-
-   
-</p>
-
 Here are the optimized parameters:
 
-
-
-| n_estimators       | max_features | max_depth  |
-| ------------- |:-------------:| -----:|
-| 40    | 5 | 10 |
-
+- n_estimators=40
+- max_features=5
+- max_depth=10
 
 
 Here are the final optimized model metrics and ROC curve:
 
 
 Confusion matrix :  
- 
- <br>
-<center>
-<img src="img/rf_cm2.png" alt="Drawing" style="width: 400px;" align="center"/>
-</center>
- <center>
-<b>Accuracy:</b>  78.2% | <b>Precision:</b> 80.5% | <b>Recall:</b> 85.8% 
-<br>
-<br>
-<img alt="Feature" src='img/rf_roc.png' width=400>
-</center>
-<br>
-<br>
 
-<b> Gradient Boosting Classifier</b>
+<p align='middle'>
+    <td><img src='./img/rf_cm2.png' align='center' style='width: 400px;'></td>
+</p>
+<p align='middle'>
+    <b>Accuracy:</b>  78.2% | <b>Precision:</b> 80.5% | <b>Recall:</b> 85.8%
+</p>
+
+<p align='middle'>
+    <td><img alt="Feature" src='./img/rf_roc.png' width=400></td>
+</p>
+
+
+### Gradient Boosting Classifier
 
 Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are:
 - n_estimators = 100
@@ -263,12 +237,10 @@ While all the models performed well, we decided to use a Gradient Boosting Class
 
 Using the GBC model, the most important features predicting churn are average rating by driver, surge percent, weekday percent, and being in King's Landing. 
 
-<b>Recommendations</b>
+### Recommendations
 
 The average rating by driver (or the passenger rating) is not something that can be changed by the company. We suspect that passengers with poor ratings are not selected by drivers, and thus have a harder time getting rides. This leads to attrition, but perhaps it isn't bad for the company to lose the worst riders. 
 
 A reduction in surge pricing or a reduction in surge hours would certainly help retain riders, as cost of the service can be a barrier. 
 
-King's landing was also an important feature and people in King's Landing are less likely to churn than in Astapor: 37% vs 74%. Winterfell falls in between the two and has a churn rate of 65%. These differences could possibly be due to operational differences in the three cities and research should be conducted into why the churn rates vary.  
-
-DELETE THIS SENTENCE
+King's landing was also an important feature and people in King's Landing are less likely to churn than in Astapor: 37% vs 74%. Winterfell falls in between the two and has a churn rate of 65%. These differences could possibly be due to operational differences in the three cities and research should be conducted into why the churn rates vary.
