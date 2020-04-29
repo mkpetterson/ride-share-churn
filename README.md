@@ -52,7 +52,7 @@ A screenshot of our cleaned dataset is below
 
 ### Exploratory Data Analysis
 
-Working on the training set only, we did some EDA to look at the distribution of the features. Below are a heatmap with correlation metrics, a histogram of numerical features, and a bar chart of the binary features. 
+Working on the training set only, we did some EDA to look at the distribution of the features. Below are several different plots highlighting correlations and distributions in the data. 
 
 <details>
     <summary>Correlation Heatmap</summary>
