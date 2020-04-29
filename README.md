@@ -63,11 +63,12 @@ Working on the training set only, we did some EDA to look at the distribution of
 
 ## Models Investigated
 
-We chose 3 different models to test: Neural Networks, Random Forest, and Gradient Boosting Classification. We decided to evaluate our models on the following metrics: Accuracy, Precision, Recall, and the ROC curve. 
+We chose 3 different models to test: Neural Networks, Random Forest, and Gradient Boosting Classification. We decided to evaluate our models on the following metrics: Accuracy, Precision, Recall, and the ROC curve. Click below to display the details of each model. 
 
+<details>
+    <summary>Neural Network Model</summary>
 
-### Neural Network Model
-
+    
 The idea behind the neural network model approach was to run a model with a large set of arbitrariliy engineered features. The original features were included in the model fit, as well as various operations on all non-binary feature types. These operations included:
 - squaring
 - cubing
@@ -110,8 +111,11 @@ This matrix shows a large amount of false negatives, with a relatively small amo
 </p>
 
 The final model seems to make predictions in line with the Random Forest and Gradient Boosting models. However, the metrics here on the training data do not reflect similar values as the other models. The lack of interpretability of the neural network and the challenges in tuning the hyperparameters are among the reasons for not choosing to move forward with this model.
+</details>
 
-### Random Forest Model
+
+<details>    
+    <summary>Random Forest Model</summary>
 
 
 We used the following metrics to compare our models including accuracy, precision, recall, and confusion matrices.  Below are the definitions.
@@ -161,9 +165,11 @@ Confusion matrix :
 <p align='middle'>
     <td><img alt="Feature" src='./img/rf_roc.png' width='400'></td>
 </p>
+</details>
 
 
-### Gradient Boosting Classifier
+<details>
+    <summary>Gradient Boosting Classifier</summary>
 
 Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are:
 - n_estimators = 100
@@ -212,6 +218,7 @@ The Gradient Boosting Classifier works fairly well based on our scoring metrics;
 
 The most influential features are: average rating by driver, surge percent, weekday percent, and living in King's Landing. Interestingly, these features were not highlighted in the correlation heatmap. 
 
+</details>    
 
 ## Comparison of Models
 
