@@ -1,4 +1,6 @@
 # Predicting Churn in a Ride Share Company
+![badge](https://img.shields.io/badge/last%20modified-april%20%202020-success)
+![badge](https://img.shields.io/badge/status-in%20progress-yellow)
 
 <a href="https://github.com/b-weintraub">Ben Weintraub</a> | <a href="https://github.com/redwin21">Eddie Ressegue</a> | <a href="https://github.com/mkpetterson">Maureen Petterson</a>
 
@@ -95,7 +97,7 @@ A confusion matrix with a threshold of 50% can be seen here:
 
 
 <p align='middle'>
-    <td><img src='./img/nn_conf_mat.png' align='center' style='width: 400px;'></td>
+    <td><img src='./img/nn_conf_mat.png' align='center' width='400'></td>
 </p>
 <p align='middle'>
     <b>Accuracy:</b> 57% | <b>Precision:</b> 80% | <b>Recall:</b> 43%
@@ -104,7 +106,7 @@ A confusion matrix with a threshold of 50% can be seen here:
 This matrix shows a large amount of false negatives, with a relatively small amount of false positives, so it is great at predicting positives but not negatives. This explains the high relative precision and low accuracy and recall.
 
 <p align='middle'>
-    <td><img src='./img/roc_nn.png' align='center' style='width: 500px;'></td>
+    <td><img src='./img/roc_nn.png' align='center' width='400'></td>
 </p>
 
 The final model seems to make predictions in line with the Random Forest and Gradient Boosting models. However, the metrics here on the training data do not reflect similar values as the other models. The lack of interpretability of the neural network and the challenges in tuning the hyperparameters are among the reasons for not choosing to move forward with this model.
@@ -125,7 +127,7 @@ We used the following metrics to compare our models including accuracy, precisio
 The following were found to be the most important features:
 
 <p align='middle'>
-    <td><img alt="Feature" src='./img/rf_feature_importance.png' width=400></td>
+    <td><img alt="Feature" src='./img/rf_feature_importance.png' width='500'></td>
 </p>
 
 Next model hyperparameters were tuned to optimize the model. We optimized the numbers of trees, the max feature parameters, and the max_depth.  The results are shown below.
@@ -157,7 +159,7 @@ Confusion matrix :
 </p>
 
 <p align='middle'>
-    <td><img alt="Feature" src='./img/rf_roc.png' width=400></td>
+    <td><img alt="Feature" src='./img/rf_roc.png' width='400'></td>
 </p>
 
 
