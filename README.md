@@ -90,7 +90,7 @@ Moderate tuning of the hyperparameters was done to achieve a final, satisfactory
 - 0.01 optimizer learning rate
 
 <p align='middle'>
-    <td><img src='./img/metrics_nn.png' align='center' style='width: 800px;'></td>
+    <td><img src='./img/metrics_nn.png' align='center' width='500'></td>
 </p>
 
 A confusion matrix with a threshold of 50% can be seen here:
@@ -218,7 +218,7 @@ The most influential features are: average rating by driver, surge percent, week
 The ROC curves for each model were plotted on top of each other, showing that each model performs similarly to the others. Ultimately it was decided that the best model to select for testing was Gradient Boosting Classifier. The final results are shown below. 
 
 <p align='middle'>
-    <td><img src='./img/roc_overlay.png' align='center' width='500'></td>
+    <td><img src='./img/roc_overlay.png' align='center' width='400'></td>
 </p>
 
 
