@@ -22,7 +22,7 @@ Churn was defined as no activity within the past 30 days, eg, no rides during th
 
 ## Exploratory Data Analysis and Data Preparation
 
-<b>Data Preparation</b>
+### Data Preparation
 
 The dataset required cleaning prior to building and evaluating our models. In particular, there were 3 features with varying amounts of null values and several categorical features that needed to be transformed. 
 
@@ -48,7 +48,7 @@ A screenshot of our cleaned dataset is below
 <img alt="Clean Data" src='img/data_clean_head.png'>
 
 
-<b>Exploratory Data Analysis</b>
+### Exploratory Data Analysis
 
 Working on the training set only, we did some EDA to look at the distribution of the features. Below are a heatmap with correlation metrics, a histogram of numerical features, and a bar chart of the binary features. 
 
