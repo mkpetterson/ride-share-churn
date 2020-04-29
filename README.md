@@ -68,7 +68,7 @@ We chose 3 different models to test: Neural Networks, Random Forest, and Gradien
 <details>
     <summary>Neural Network Model</summary>
 
-    
+<br>    
 The idea behind the neural network model approach was to run a model with a large set of arbitrariliy engineered features. The original features were included in the model fit, as well as various operations on all non-binary feature types. These operations included:
 - squaring
 - cubing
@@ -117,7 +117,7 @@ The final model seems to make predictions in line with the Random Forest and Gra
 <details>    
     <summary>Random Forest Model</summary>
 
-
+<br>
 We used the following metrics to compare our models including accuracy, precision, recall, and confusion matrices.  Below are the definitions.
 
 <p align='middle'>
@@ -170,11 +170,13 @@ Confusion matrix :
 
 <details>
     <summary>Gradient Boosting Classifier</summary>
-
-Out of the box metrics for Gradient Boosting Classfier were pretty good. The default values are:
+<br>
+Gradient boosting is a powerful technique that combines an ensemble of weak learners (in this case, decision trees) to yield results better than a random forest classifier. This iterative technique performed faily well out of the box. The default values of our classifier are:
+    
 - n_estimators = 100
 - learning rate = 0.1
 - max depth = 3
+
 
 The results can be summarized in the following confusion matrix with a threshold of 50%: 
 
