@@ -6,7 +6,7 @@
 
 ## Table of Contents
 
-- <a href="https://github.com/mkpetterson/ride-share-churn#intro">Intro</a>  
+- <a href="https://github.com/mkpetterson/ride-share-churn#intro">Introduction</a>  
 - <a href="https://github.com/mkpetterson/ride-share-churn#exploratory-data-analysis-and-data-preparation">Exploratory Data Analysis and Data Preparation</a> 
 - <a href="https://github.com/mkpetterson/ride-share-churn#models-investigated">Models Investigated</a>  
 - <a href="https://github.com/mkpetterson/ride-share-churn#comparison-of-models">Comparison of Models</a> 
@@ -14,7 +14,7 @@
 
 
 
-## Intro
+## Introduction
 Ridership rates at ride sharing companies can be affected by several factors, some of which may include the cost of the rides, if the user rates the driver highly, and the ride experience. We were interested in finding out what methods can be used to help retain riders and what factors affect rider attrition. 
 
 Our dataset contains the ridership information tracking 50,000 users, all of whom signed up in January 2014. Various factors, including number of rides, average trip length, surge percent, and driver/passenger ratings were tracked over a 6 month period (though July 1st, 2014). At the end of the period, a user would be considered "active" if she had used the rideshare company within the past 30 days. 
