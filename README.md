@@ -22,7 +22,7 @@ Our dataset contains the ridership information tracking 50,000 users, all of who
 Churn was defined as no activity within the past 30 days, eg, no rides during the month of June. 
 
 
-## Exploratory Data Analysis and Data Preparation
+## Data Preparation and Exploratory Data Analysis
 
 ### Data Preparation
 
@@ -237,6 +237,9 @@ The most influential features are: average rating by driver, surge percent, week
 
 The ROC curves for each model were plotted on top of each other, showing that each model performs similarly to the others. Ultimately it was decided that the best model to select for testing was Gradient Boosting Classifier. The final results are shown below. 
 
+<details>
+    <summary>ROC Curve and Confusion Matrix</summary>
+
 <p align='middle'>
     <td><img src='./img/roc_overlay.png' align='center' width='400'></td>
 </p>
@@ -251,13 +254,13 @@ The ROC curves for each model were plotted on top of each other, showing that ea
     <b>Accuracy:</b> 78% | <b>Precision:</b> 81% | <b>Recall:</b> 86%
 </p>
 
-
+</details>
 
 ## Summary and Key Findings
 
 While all the models performed well, we decided to use a Gradient Boosting Classifier to predict ridership churn. While the neural network performed well, it is essentially a black box that cannnot tell us the most important features and is less helpful in determining what business practices to change. 
 
-Using the GBC model, the most important features predicting churn are average rating by driver, surge percent, weekday percent, and being in King's Landing. 
+Using the GBC model, the most important features predicting churn are average rating by driver, surge percent, weekday percent, and being in King's Landing. <b>Our final values for accuracy, precision, and recall are 78%, 81%, and 86%, respectively. </b>
 
 ### Recommendations
 
