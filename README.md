@@ -54,12 +54,23 @@ A screenshot of our cleaned dataset is below
 
 Working on the training set only, we did some EDA to look at the distribution of the features. Below are a heatmap with correlation metrics, a histogram of numerical features, and a bar chart of the binary features. 
 
+<details>
+    <summary>Correlation Heatmap</summary>
 <img alt="Heatmap" src='img/corr_heatmap.png' style='width: 600px;'>
-<img alt="Histograms" src='img/histograms_of_features.png'>
+</details>
 
+<details>
+    <summary>Histogram of Features</summary>
+<img alt="Histograms" src='img/histograms_of_features.png'>
+</details>
+
+<details>
+    <summary>Binary Features Bar Chart</summary>
 <p align='middle'>
     <td><img src='img/binary_bar_chart.png' align='center' width="400"></td>
 </p>
+</details>
+
 
 ## Models Investigated
 
